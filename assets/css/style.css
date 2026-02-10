@@ -47,6 +47,17 @@ p {
   margin: 15px 0 20px 0;
 }
 
+.promise-title {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.promise-subtitle {
+  text-align: center;
+  color: #000;
+  margin-bottom: 0;
+}
+
 button.normal {
   cursor: pointer;
   border-radius: 4px;
@@ -861,10 +872,7 @@ footer .copyright {
   padding: 14px;
 }
 
-#page-header h2,
-p {
-  color: white;
-}
+
 
 #pagination {
   text-align: center;
@@ -1302,7 +1310,7 @@ p {
 
   #hero {
 
-    height: 70vh;
+    height: 80vh;
     padding: 0 80px;
     background-position: top 30% right 30%;
   }

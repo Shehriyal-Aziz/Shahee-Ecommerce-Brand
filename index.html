@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Shahee</title>
+    <meta name="description" content="Shop Shahee for seasonal deals, featured products, and new arrivals.">
     <!-- fontawsome cdn -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-papNM4z+Y9O1v1b7gW5i6IopztpJ+V9G+cnHO2lZrFqWkFyXp3PoMa/n5yR6Bo2tFQp5FocB4N+Q6YB9+YxK5A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -17,7 +17,6 @@
     <!-- css sheet -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 
 
@@ -26,7 +25,7 @@
 <body>
     <!-- navbar -->
     <section id="header">
-        <a href="#"><img src="assets/img/logo.png" class="logo " alt=""></a>
+        <a href="#" aria-label="Shahee home"><img src="assets/img/logo.png" class="logo " alt="Shahee logo"></a>
 
         <div>
             <ul id="navbar">
@@ -35,7 +34,7 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li id="lg-bag">
-                    <a href="#"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                    <a href="#" aria-label="Open cart"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
@@ -44,12 +43,13 @@
 
                 </li>
 
-                <a href="#"><i id="close" class="fas fa-times"></i></a>
+                <a href="#" aria-label="Close menu"><i id="close" class="fas fa-times"></i></a>
             </ul>
         </div>
         <div id="mobile">
             <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                width="24" height="24" fill="none" viewBox="0 0 24 24">
+                width="24" height="24" fill="none" viewBox="0 0 24 24" role="button" tabindex="0"
+                aria-label="Open cart">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
             </svg>
@@ -57,30 +57,14 @@
             <i id="bar" class="fa-solid fa-outdent"> </i>
         </div>
 
-        <!-- Cart Sidebar -->
+                <!-- Cart Sidebar -->
         <div id="cart-sidebar">
             <div class="cart-header">
                 <h2>Your Cart</h2>
-                <i id="close-cart" class="fas fa-times"></i>
+                <i id="close-cart" class="fas fa-times" role="button" aria-label="Close cart"></i>
             </div>
             <div class="cart-content">
                 <p>Your cart is empty</p>
-
-
-                <div class="cart-item">
-                    <img src="..." width="50">
-                    <div>
-                        <h5>Product Name</h5>
-                        <p class="item-price">Price PKR</p>
-                        <div class="qty-controls  ">
-                            <button class="dec-qty" data-id="...">-</button>
-                            <span class="quantity">Qty</span>
-                            <button class="inc-qty" data-id="...">+</button>
-                        </div>
-                    </div>
-                    <button class="remove-item" data-id="...">✕</button>
-                </div>
-
             </div>
 
             <div class="cart-footer">
@@ -99,36 +83,36 @@
         <h2>Super value Deals</h2>
         <h1>On all products</h1>
         <p>Save more with coupons & up to 70% off!</p>
-        <button>shop now</button>
+        <a href="shop.html"><button type="button">shop now</button></a>
 
     </section>
     <!-- benifits -->
-    <h2 style="text-align: center; margin-top: 40px;">Our Promise to You</h2>
-    <p style="text-align: center;  color: black; margin-bottom: 0;">We offer unbeatable deals.</p>
+    <h2 class="promise-title">Our Promise to You</h2>
+    <p class="promise-subtitle">We offer unbeatable deals.</p>
     <section id="feature" class="section-p1">
 
         <div class="fe-box">
-            <img src="assets/img/features/f1.png" alt="">
+            <img src="assets/img/features/f1.png" alt="Free shipping">
             <h6>Free Shipping</h6>
         </div>
         <div class="fe-box">
-            <img src="assets/img/features/f2.png" alt="">
+            <img src="assets/img/features/f2.png" alt="Online order">
             <h6>Oline Order</h6>
         </div>
         <div class="fe-box">
-            <img src="assets/img/features/f3.png" alt="">
+            <img src="assets/img/features/f3.png" alt="Save money">
             <h6>Save money</h6>
         </div>
         <div class="fe-box">
-            <img src="assets/img/features/f4.png" alt="">
+            <img src="assets/img/features/f4.png" alt="Promotion">
             <h6>promotion</h6>
         </div>
         <div class="fe-box">
-            <img src="assets/img/features/f5.png" alt="">
+            <img src="assets/img/features/f5.png" alt="Happy sell">
             <h6>Happy sell</h6>
         </div>
         <div class="fe-box">
-            <img src="assets/img/features/f6.png" alt="">
+            <img src="assets/img/features/f6.png" alt="Support">
             <h6>support</h6>
         </div>
     </section>
@@ -150,7 +134,7 @@
     <section id="banner" class="section-m1">
         <h4>Repair services</h4>
         <h2> Upto <span>70%off</span>- All T-Shirts & Accessories</h2>
-        <button onclick="window.location.href='shop.html'" class="normal">Explore More</button>
+        <button type="button" onclick="window.location.href='shop.html'" class="normal">Explore More</button>
     </section>
 
     <section id="product1" class="section-p1">
@@ -170,13 +154,13 @@
             <h4>Creazy deals</h4>
             <h2>buy 1 get 1 free</h2>
             <span>the best classic dress is on sale at care</span>
-            <button onclick="window.location.href='shop.html'"> learn more</button>
+            <button type="button" onclick="window.location.href='shop.html'"> learn more</button>
         </div>
         <div class="banner-box banner-box2 ">
             <h4>spring/summer</h4>
             <h2>upcomming season</h2>
             <span>the best classic dress is on sale at care</span>
-            <button onclick="window.location.href='shop.html'"> collection</button>
+            <button type="button" onclick="window.location.href='shop.html'"> collection</button>
         </div>
     </section>
 
@@ -205,13 +189,13 @@
         </div>
         <div class="form">
             <input type="text" placeholder="your email address" id="emailInput">
-            <button class="normal" id="clearBtn">Sign Up</button>
+            <button type="button" class="normal" id="clearBtn">Sign Up</button>
         </div>
     </section>
 
     <footer class="section-p1">
         <div class="col">
-            <img class="logo" src="/assets/img/logo.png" alt="">
+            <img class="logo" src="/assets/img/logo.png" alt="Shahee logo">
             <h4>Contact</h4>
             <p><strong>Address:</strong> Shaheed Makhdoom Bilawal near kiran hospital karachi </p>
             <p><strong>phone:</strong>+92 3162830005</p>
@@ -219,10 +203,10 @@
             <div class="follow">
                 <h4>Follow us</h4>
                 <div class="icon">
-                    <a href="https://github.com/Shehriyal-Aziz"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.linkedin.com/in/shehriyal-aziz/"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=61577105013351"><i class="fab fa-github"></i></a>
-                    <a href="https://www.instagram.com/_.sherry_.x/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/Shehriyal-Aziz" aria-label="GitHub"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/in/shehriyal-aziz/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61577105013351" aria-label="Facebook"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/_.sherry_.x/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
@@ -230,17 +214,17 @@
         <div class="col">
             <h4>About</h4>
             <a href="about.html"> About Us </a>
-            <a onclick="alert('working on it!')"  href="#"> Delivery Information </a>
-            <a onclick="alert('working on it!')"  href="#"> Privacy Information </a>
-            <a onclick="alert('working on it!')"  href="#"> Terms & Conditions </a>
+            <a onclick="alert('working on it!')" href="javascript:void(0)" aria-disabled="true" tabindex="-1"> Delivery Information </a>
+            <a onclick="alert('working on it!')" href="javascript:void(0)" aria-disabled="true" tabindex="-1"> Privacy Information </a>
+            <a onclick="alert('working on it!')" href="javascript:void(0)" aria-disabled="true" tabindex="-1"> Terms & Conditions </a>
             <a href="contact.html"> Contact Us </a>
         </div>
         <div class="col">
             <h4>My Account</h4>
             <a href="#newsletter"> Sign In </a>
-            <a onclick="alert('working on it!')"  href="#"> View Cart </a>
-            <a onclick="alert('working on it!')"  href="#"> My Wishlist </a>
-            <a onclick="alert('working on it!')"  href="#"> Track My Order</a>
+            <a onclick="alert('working on it!')" href="javascript:void(0)" aria-disabled="true" tabindex="-1"> View Cart </a>
+            <a onclick="alert('working on it!')" href="javascript:void(0)" aria-disabled="true" tabindex="-1"> My Wishlist </a>
+            <a onclick="alert('working on it!')" href="javascript:void(0)" aria-disabled="true" tabindex="-1"> Track My Order</a>
             <a href="contact.html"> Help </a>
         </div>
 
@@ -250,8 +234,11 @@
     </footer>
 
 
-    <script src="assets/js/script.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script defer src="assets/js/script.js"></script>
 
 </body>
 
 </html>
+
+

@@ -47,6 +47,28 @@ let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 let allProducts = [];
 
+function initSlider(container) {
+    if (!container || typeof Swiper === 'undefined') return;
+
+    const nextEl = container.querySelector('.swiper-button-next');
+    const prevEl = container.querySelector('.swiper-button-prev');
+
+    new Swiper(container, {
+        slidesPerView: 4,
+        spaceBetween: 20,
+        navigation: {
+            nextEl,
+            prevEl,
+        },
+        breakpoints: {
+            0: { slidesPerView: 1, spaceBetween: 12 },
+            640: { slidesPerView: 2, spaceBetween: 16 },
+            900: { slidesPerView: 3, spaceBetween: 18 },
+            1200: { slidesPerView: 4, spaceBetween: 20 },
+        },
+    });
+}
+
 fetch('product.json')
     .then(res => res.json())
     .then(products => {
@@ -173,7 +195,7 @@ function updateCartUI() {
                     <button class="inc-qty" data-id="${item.id}">+</button>
                 </div>
             </div>
-            <button class="remove-item" data-id="${item.id}">✕</button>
+            <button class="remove-item" data-id="${item.id}">&times;</button>
         </div>
     `).join('');
 
@@ -251,6 +273,7 @@ button.addEventListener('click', () => {
     alert('thanks for subscribing!'); // Optional: Show an alert or message 
 
 });
+
 
 
 

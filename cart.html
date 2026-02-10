@@ -258,7 +258,7 @@
             <label for="address" style="grid-column: span 2;">Delivery Address</label>
             <textarea id="address" rows="4" style="grid-column: span 2;"></textarea>
 
-            <button onclick="sendmail()" type="submit" id="place-order-btn">Place Order</button>
+            <button type="submit" id="place-order-btn">Place Order</button>
         </form>
     </div>
 
@@ -282,7 +282,7 @@
         function generateOrderID() {
             return 'ORD' + Date.now(); // Simple order id based on timestamp
         }
-        async function sendmail() {
+        async function sendmail(params) {
             // Optional: wait for products if not loaded yet
             if (!products || products.length === 0) {
                 await loadProducts();
@@ -307,21 +307,20 @@
     `;
             }).join('');
 
-            const Params = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                province: document.getElementById('province').value,
-                address: document.getElementById('address').value,
-                order_id: generateOrderID(),
+            const totalText = document
+                .getElementById('total-price')
+                .textContent.replace('Total Price: ', '')
+                .replace(' PKR', '');
 
+            const merged = {
+                ...params,
                 product_ids: productIds,
                 cart_items: cartItemsText,
                 cart_items_html: cartItemsHTML,
-                total: document.getElementById('total-price').textContent.replace('Total Price: ', '').replace(' PKR', '')
+                total: totalText,
             };
 
-            emailjs.send('service_o192pgx', 'template_16mc60s', Params);
+            return emailjs.send('service_o192pgx', 'template_16mc60s', merged);
                 
         }
 
@@ -472,23 +471,80 @@
                 return;
             }
 
-           
-            alert(`Thank you for your order, ${document.getElementById('name').value.trim()}!`);
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const province = document.getElementById('province').value.trim();
+            const address = document.getElementById('address').value.trim();
 
+            const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            const nameValid = name.length >= 3;
+            const phoneDigits = phone.replace(/\D/g, '');
+            const phoneValid = phoneDigits.length >= 10 && phoneDigits.length <= 15;
+            const addressValid = address.length >= 10;
+            const provinceValid = !!province;
 
+            if (!nameValid) {
+                const nameEl = document.getElementById('name');
+                nameEl.classList.add('error');
+                nameEl.focus();
+                return;
+            }
 
-            // Clear cart and form
-            cart = [];
-            saveCart();
-            renderCart();
-            e.target.reset();
+            if (!emailValid) {
+                const emailEl = document.getElementById('email');
+                emailEl.classList.add('error');
+                emailEl.focus();
+                return;
+            }
 
-            // Redirect to homepage after short delay
-            setTimeout(() => {
-                window.location.href = 'index.html';  // Change if your homepage URL is different
-            }, 1500);
+            if (!phoneValid) {
+                const phoneEl = document.getElementById('phone');
+                phoneEl.classList.add('error');
+                phoneEl.focus();
+                return;
+            }
 
+            if (!provinceValid) {
+                const provinceEl = document.getElementById('province');
+                provinceEl.classList.add('error');
+                provinceEl.focus();
+                return;
+            }
 
+            if (!addressValid) {
+                const addressEl = document.getElementById('address');
+                addressEl.classList.add('error');
+                addressEl.focus();
+                return;
+            }
+
+            const params = {
+                name,
+                email,
+                phone,
+                province,
+                address,
+                order_id: generateOrderID(),
+            };
+
+            sendmail(params)
+                .then(() => {
+                    alert(`Thank you for your order, ${name}!`);
+                    // Clear cart and form
+                    cart = [];
+                    saveCart();
+                    renderCart();
+                    e.target.reset();
+
+                    // Redirect to homepage after short delay
+                    setTimeout(() => {
+                        window.location.href = 'index.html';  // Change if your homepage URL is different
+                    }, 1500);
+                })
+                .catch(() => {
+                    alert('There was a problem sending your order email. Please try again.');
+                });
 
         });
 
